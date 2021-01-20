@@ -1,5 +1,5 @@
 use std::collections::BTreeMap;
 
 pub fn transform(h: &BTreeMap<i32, Vec<char>>) -> BTreeMap<char, i32> {
-    unimplemented!("How will you transform the tree {:?}?", h)
+    h.into_iter().flat_map(|(i,v)| v.into_iter().map(move |x|(x.to_ascii_lowercase(),*i))).collect()
 }
